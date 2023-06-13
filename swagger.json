@@ -897,7 +897,7 @@
       "parameters": [
         {
           "in": "path",
-          "name": "answer_id",
+          "name": "user_id",
           "required": true,
           "schema": {
             "type": "integer",
@@ -906,7 +906,7 @@
         },
         {
           "in": "path",
-          "name": "user_id",
+          "name": "answer_id",
           "required": true,
           "schema": {
             "type": "integer",
@@ -960,6 +960,10 @@
             "type": "string",
             "description": "Error name"
           },
+          "code": {
+            "type": "integer",
+            "description": "Error code"
+          },
           "message": {
             "type": "string",
             "description": "Error message"
@@ -967,10 +971,6 @@
           "errors": {
             "type": "object",
             "description": "Errors"
-          },
-          "code": {
-            "type": "integer",
-            "description": "Error code"
           }
         }
       },
@@ -1003,13 +1003,13 @@
       "PlainUser": {
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
           "id": {
             "type": "integer",
             "readOnly": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
           }
         },
         "required": [
@@ -1019,10 +1019,35 @@
       "School": {
         "type": "object",
         "properties": {
-          "zip": {
+          "code": {
+            "type": "integer"
+          },
+          "website": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "phone": {
             "type": "string"
           },
           "type": {
+            "type": "string"
+          },
+          "state_code": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "address": {
+            "type": "string"
+          },
+          "zip": {
+            "type": "string"
+          },
+          "city": {
             "type": "string"
           },
           "users": {
@@ -1032,32 +1057,7 @@
               "$ref": "#/components/schemas/PlainUser"
             }
           },
-          "state_code": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "state": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
           "name": {
-            "type": "string"
-          },
-          "code": {
-            "type": "integer"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "website": {
             "type": "string"
           }
         },
@@ -1077,74 +1077,49 @@
       "Subject": {
         "type": "object",
         "properties": {
-          "subject_reward": {
-            "type": "string"
-          },
           "category": {
             "type": "string"
           },
-          "name": {
+          "subject_reward": {
             "type": "string"
           },
           "id": {
             "type": "integer",
             "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
           }
         },
         "required": [
           "category",
           "name",
+          "subject_id",
           "subject_reward"
         ]
       },
       "User": {
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
+          "id": {
+            "type": "integer",
+            "readOnly": true
           },
           "password": {
             "type": "string",
             "writeOnly": true
           },
-          "id": {
-            "type": "integer",
-            "readOnly": true
+          "email": {
+            "type": "string",
+            "format": "email"
           }
         },
         "required": [
           "email",
           "password"
-        ]
-      },
-      "PlainQuestion": {
-        "type": "object",
-        "properties": {
-          "subject_name": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "image_url": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "category": {
-            "type": "string"
-          },
-          "recog_text": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "category",
-          "content",
-          "subject_name"
         ]
       },
       "PlainSchool": {
@@ -1162,11 +1137,44 @@
           "name"
         ]
       },
-      "PlainAnswer": {
+      "PlainSubject": {
         "type": "object",
         "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "subject_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "subject_id"
+        ]
+      },
+      "PlainQuestion": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
           "image_url": {
             "type": "string"
+          },
+          "subject": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainSubject"
+              }
+            ]
           },
           "recog_text": {
             "type": "string"
@@ -1174,9 +1182,28 @@
           "id": {
             "type": "integer",
             "readOnly": true
-          },
+          }
+        },
+        "required": [
+          "category",
+          "content"
+        ]
+      },
+      "PlainAnswer": {
+        "type": "object",
+        "properties": {
           "content": {
             "type": "string"
+          },
+          "recog_text": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
           }
         },
         "required": [
@@ -1189,12 +1216,30 @@
           "payment_account": {
             "type": "string"
           },
-          "reported_questions": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/PlainQuestion"
-            }
+          "password": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "school_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "payment_option": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "role": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
           },
           "school": {
             "readOnly": true,
@@ -1204,49 +1249,8 @@
               }
             ]
           },
-          "answers": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/PlainAnswer"
-            }
-          },
-          "id": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "reported_answers": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/PlainAnswer"
-            }
-          },
-          "role": {
-            "type": "string"
-          },
-          "level": {
-            "type": "string"
-          },
           "reward": {
             "type": "number"
-          },
-          "payment_option": {
-            "type": "integer"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "nickname": {
-            "type": "string"
-          },
-          "grade": {
-            "type": "string"
-          },
-          "school_id": {
-            "type": "integer",
-            "writeOnly": true
           },
           "questions": {
             "type": "array",
@@ -1255,9 +1259,32 @@
               "$ref": "#/components/schemas/PlainQuestion"
             }
           },
-          "password": {
-            "type": "string",
-            "writeOnly": true
+          "reported_answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          },
+          "reported_questions": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainQuestion"
+            }
+          },
+          "level": {
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
           }
         },
         "required": [
@@ -1278,21 +1305,12 @@
           "payment_account": {
             "type": "string"
           },
-          "id": {
-            "type": "integer",
-            "readOnly": true
+          "password": {
+            "type": "string",
+            "writeOnly": true
           },
-          "school_name": {
+          "nickname": {
             "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "level": {
-            "type": "string"
-          },
-          "reward": {
-            "type": "number"
           },
           "payment_option": {
             "type": "integer"
@@ -1301,15 +1319,24 @@
             "type": "string",
             "format": "email"
           },
-          "nickname": {
+          "role": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "reward": {
+            "type": "number"
+          },
+          "level": {
+            "type": "string"
+          },
+          "school_name": {
             "type": "string"
           },
           "grade": {
             "type": "string"
-          },
-          "password": {
-            "type": "string",
-            "writeOnly": true
           }
         },
         "required": [
@@ -1328,16 +1355,16 @@
       "UserReward": {
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
           "id": {
             "type": "integer",
             "readOnly": true
           },
           "reward": {
             "type": "number"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
           }
         },
         "required": [
@@ -1348,7 +1375,7 @@
       "Question": {
         "type": "object",
         "properties": {
-          "subject_name": {
+          "content": {
             "type": "string"
           },
           "reported_by": {
@@ -1358,16 +1385,51 @@
               "$ref": "#/components/schemas/PlainUser"
             }
           },
-          "content": {
+          "category": {
             "type": "string"
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "subject": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainSubject"
+              }
+            ]
           },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
-          "image_url": {
+          "recog_text": {
             "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           },
           "answers": {
             "type": "array",
@@ -1375,63 +1437,20 @@
             "items": {
               "$ref": "#/components/schemas/PlainAnswer"
             }
-          },
-          "id": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "correct_answer_id": {
-            "type": "integer"
-          },
-          "user": {
-            "readOnly": true,
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PlainUser"
-              }
-            ]
-          },
-          "category": {
-            "type": "string"
-          },
-          "recog_text": {
-            "type": "string"
-          },
-          "user_id": {
-            "type": "integer",
-            "writeOnly": true
           }
         },
         "required": [
           "category",
-          "content",
-          "subject_name"
+          "content"
         ]
       },
       "Search": {
         "type": "object",
         "properties": {
-          "subjectIDs": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "page": {
+          "query": {
             "type": "string"
           },
           "num": {
-            "type": "string"
-          },
-          "authorEmail": {
-            "type": "string"
-          },
-          "query": {
             "type": "string"
           },
           "nickname": {
@@ -1439,34 +1458,46 @@
           },
           "hasAnswer": {
             "type": "string"
+          },
+          "page": {
+            "type": "string"
+          },
+          "subjectIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "authorEmail": {
+            "type": "string"
           }
         }
       },
-      "AnswersForSearch": {
+      "PlainUserSchemaWithNickname": {
         "type": "object",
         "properties": {
-          "is_selected": {
-            "type": "integer"
-          },
-          "content": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "image_url": {
-            "type": "string"
-          },
           "id": {
             "type": "integer",
             "readOnly": true
           },
-          "updated_at": {
+          "nickname": {
+            "type": "string"
+          },
+          "email": {
             "type": "string",
-            "format": "date-time",
-            "readOnly": true
+            "format": "email"
+          }
+        },
+        "required": [
+          "email",
+          "nickname"
+        ]
+      },
+      "AnswersForSearch": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
           },
           "user": {
             "readOnly": true,
@@ -1476,61 +1507,23 @@
               }
             ]
           },
-          "recog_text": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer",
             "writeOnly": true
-          }
-        },
-        "required": [
-          "content"
-        ]
-      },
-      "PlainUserSchemaWithNickname": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
           },
-          "nickname": {
+          "image_url": {
             "type": "string"
           },
-          "id": {
-            "type": "integer",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "email",
-          "nickname"
-        ]
-      },
-      "QuestionsSearch": {
-        "type": "object",
-        "properties": {
-          "subject_name": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
+          "is_selected": {
+            "type": "integer"
           },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
-          "image_url": {
+          "recog_text": {
             "type": "string"
-          },
-          "answers": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/AnswersForSearch"
-            }
           },
           "id": {
             "type": "integer",
@@ -1540,9 +1533,20 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          }
+        },
+        "required": [
+          "content"
+        ]
+      },
+      "QuestionsSearch": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
           },
-          "correct_answer_id": {
-            "type": "integer"
+          "category": {
+            "type": "string"
           },
           "user": {
             "readOnly": true,
@@ -1552,23 +1556,54 @@
               }
             ]
           },
-          "category": {
+          "image_url": {
             "type": "string"
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "subject": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainSubject"
+              }
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           },
           "recog_text": {
             "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/AnswersForSearch"
+            }
           }
         },
         "required": [
           "category",
-          "content",
-          "subject_name"
+          "content"
         ]
       },
       "QuestionsAsList": {
         "type": "object",
         "properties": {
-          "subject_name": {
+          "content": {
             "type": "string"
           },
           "reported_by": {
@@ -1578,30 +1613,45 @@
               "$ref": "#/components/schemas/PlainUser"
             }
           },
-          "question_list": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/QuestionsSearch"
-            }
-          },
-          "content": {
+          "category": {
             "type": "string"
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "subject": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainSubject"
+              }
+            ]
           },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
-          "image_url": {
+          "recog_text": {
             "type": "string"
-          },
-          "answers": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/PlainAnswer"
-            }
           },
           "return_code": {
             "type": "string"
@@ -1610,16 +1660,43 @@
             "type": "integer",
             "readOnly": true
           },
+          "question_list": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/QuestionsSearch"
+            }
+          },
           "updated_at": {
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
-          "correct_answer_id": {
-            "type": "integer"
-          },
-          "message": {
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          }
+        },
+        "required": [
+          "category",
+          "content"
+        ]
+      },
+      "Answer": {
+        "type": "object",
+        "properties": {
+          "content": {
             "type": "string"
+          },
+          "reported_by": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainUser"
+            }
           },
           "user": {
             "readOnly": true,
@@ -1629,43 +1706,9 @@
               }
             ]
           },
-          "category": {
-            "type": "string"
-          },
-          "recog_text": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer",
             "writeOnly": true
-          }
-        },
-        "required": [
-          "category",
-          "content",
-          "subject_name"
-        ]
-      },
-      "Answer": {
-        "type": "object",
-        "properties": {
-          "is_selected": {
-            "type": "integer"
-          },
-          "reported_by": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/PlainUser"
-            }
-          },
-          "content": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
           },
           "image_url": {
             "type": "string"
@@ -1673,6 +1716,17 @@
           "question_id": {
             "type": "integer",
             "writeOnly": true
+          },
+          "is_selected": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "recog_text": {
+            "type": "string"
           },
           "id": {
             "type": "integer",
@@ -1683,14 +1737,6 @@
             "format": "date-time",
             "readOnly": true
           },
-          "user": {
-            "readOnly": true,
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PlainUser"
-              }
-            ]
-          },
           "question": {
             "readOnly": true,
             "allOf": [
@@ -1698,13 +1744,6 @@
                 "$ref": "#/components/schemas/PlainQuestion"
               }
             ]
-          },
-          "recog_text": {
-            "type": "string"
-          },
-          "user_id": {
-            "type": "integer",
-            "writeOnly": true
           }
         },
         "required": [
@@ -1715,17 +1754,14 @@
       "ReqReward": {
         "type": "object",
         "properties": {
-          "calculated_reward": {
-            "type": "string"
+          "payment_option": {
+            "type": "integer"
           },
-          "req_reward": {
-            "type": "string"
+          "email": {
+            "type": "string",
+            "format": "email"
           },
-          "re_reward_id": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "balance": {
+          "status": {
             "type": "string"
           },
           "requested_at": {
@@ -1736,14 +1772,17 @@
           "account": {
             "type": "string"
           },
-          "payment_option": {
-            "type": "integer"
+          "req_reward": {
+            "type": "string"
           },
-          "email": {
-            "type": "string",
-            "format": "email"
+          "re_reward_id": {
+            "type": "integer",
+            "readOnly": true
           },
-          "status": {
+          "calculated_reward": {
+            "type": "string"
+          },
+          "balance": {
             "type": "string"
           }
         },
@@ -1771,10 +1810,10 @@
       "Report": {
         "type": "object",
         "properties": {
-          "answer_id": {
+          "user_id": {
             "type": "integer"
           },
-          "user_id": {
+          "answer_id": {
             "type": "integer"
           },
           "id": {
@@ -1792,10 +1831,6 @@
       "UserReportsQuestion": {
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
           "reported_questions": {
             "type": "array",
             "readOnly": true,
@@ -1806,6 +1841,10 @@
           "id": {
             "type": "integer",
             "readOnly": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
           }
         },
         "required": [
@@ -1815,24 +1854,20 @@
       "ReportQuestion": {
         "type": "object",
         "properties": {
-          "question": {
-            "$ref": "#/components/schemas/PlainQuestion"
+          "user": {
+            "$ref": "#/components/schemas/PlainUser"
           },
           "message": {
             "type": "string"
           },
-          "user": {
-            "$ref": "#/components/schemas/PlainUser"
+          "question": {
+            "$ref": "#/components/schemas/PlainQuestion"
           }
         }
       },
       "UserReportsAnswer": {
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
           "id": {
             "type": "integer",
             "readOnly": true
@@ -1843,6 +1878,10 @@
             "items": {
               "$ref": "#/components/schemas/PlainAnswer"
             }
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
           }
         },
         "required": [
@@ -1852,14 +1891,14 @@
       "ReportAnswer": {
         "type": "object",
         "properties": {
-          "message": {
-            "type": "string"
-          },
           "answer": {
             "$ref": "#/components/schemas/PlainAnswer"
           },
           "user": {
             "$ref": "#/components/schemas/PlainUser"
+          },
+          "message": {
+            "type": "string"
           }
         }
       }
