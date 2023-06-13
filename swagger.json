@@ -1,93 +1,10 @@
 {
-    "paths": {
-      "/schools/{school_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/School"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "schools"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "schools"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "school_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
-          }
-        ]
-      },
-      "/schools": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/School"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "schools"
-          ]
-        },
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "201": {
-              "description": "Created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/School"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
+  "paths": {
+    "/schools/{school_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,99 +13,99 @@
               }
             }
           },
-          "tags": [
-            "schools"
-          ]
-        }
-      },
-      "/subjects/{subject_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Subject"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "subjects"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "subjects"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "subject_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
           }
+        },
+        "tags": [
+          "schools"
         ]
       },
-      "/subjects": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Subject"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "subjects"
-          ]
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
         },
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "201": {
-              "description": "Created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Subject"
+        "tags": [
+          "schools"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "school_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/schools": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/School"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "requestBody": {
-            "required": true,
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "schools"
+        ]
+      },
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/School"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/School"
+              }
+            }
+          }
+        },
+        "tags": [
+          "schools"
+        ]
+      }
+    },
+    "/subjects/{subject_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -197,289 +114,299 @@
               }
             }
           },
-          "tags": [
-            "subjects"
-          ]
-        }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "subjects"
+        ]
       },
-      "/auth/register": {
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "subjects"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "subject_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/subjects": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "tags": [
-            "Users"
-          ]
-        }
-      },
-      "/auth/login": {
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "tags": [
-            "Users"
-          ]
-        }
-      },
-      "/auth/refresh": {
-        "post": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "Users"
-          ]
-        }
-      },
-      "/auth/logout": {
-        "post": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "Users"
-          ]
-        }
-      },
-      "/auth/users": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/UserAllInfo"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Subject"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "tags": [
-            "Users"
-          ]
-        }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "subjects"
+        ]
       },
-      "/auth/users/{user_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subject"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            }
+          }
+        },
+        "tags": [
+          "subjects"
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/auth/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/UserAllInfo"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "tags": [
-            "Users"
-          ]
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
         },
-        "put": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserAllInfo"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/auth/users/{user_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserUpdate"
+                  "$ref": "#/components/schemas/UserAllInfo"
                 }
               }
             }
           },
-          "tags": [
-            "Users"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "Users"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
           }
+        },
+        "tags": [
+          "Users"
         ]
       },
-      "/auth/users/rank": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/UserReward"
-                    }
-                  }
+      "put": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserAllInfo"
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "tags": [
-            "Users"
-          ]
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdate"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
         }
-      },
-      "/qa/questions/{question_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Question"
+      ]
+    },
+    "/auth/users/rank": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserReward"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "tags": [
-            "questions"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "questions"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "question_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
           }
-        ]
-      },
-      "/qa/questions": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Question"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "questions"
-          ]
         },
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/qa/questions/{question_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -488,99 +415,124 @@
               }
             }
           },
-          "tags": [
-            "questions"
-          ]
-        }
-      },
-      "/qa/answers/{answer_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Answer"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "answers"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "answers"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "answer_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
           }
+        },
+        "tags": [
+          "questions"
         ]
       },
-      "/qa/answers": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Answer"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "answers"
-          ]
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
         },
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "201": {
-              "description": "Created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Answer"
+        "tags": [
+          "questions"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "question_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/qa/questions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "requestBody": {
-            "required": true,
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "questions"
+        ]
+      },
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          }
+        },
+        "tags": [
+          "questions"
+        ]
+      }
+    },
+    "/qa/questions/search": {
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionsAsList"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Search"
+              }
+            }
+          }
+        },
+        "tags": [
+          "questions"
+        ]
+      }
+    },
+    "/qa/answers/{answer_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -589,1034 +541,1350 @@
               }
             }
           },
-          "tags": [
-            "answers"
-          ]
-        }
-      },
-      "/req_rewards/{req_reward_id}": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ReqReward"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "req_rewards"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "req_rewards"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "req_reward_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
           }
+        },
+        "tags": [
+          "answers"
         ]
       },
-      "/req_rewards": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ReqReward"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "req_rewards"
-          ]
-        }
-      },
-      "/auth/users/{user_id}/req_rewards": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ReqReward"
-                    }
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "tags": [
-            "req_rewards"
-          ]
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
         },
-        "post": {
-          "responses": {
-            "422": {
-              "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
-            },
-            "201": {
-              "description": "Created",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ReqReward"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
-          },
-          "requestBody": {
-            "required": true,
+        "tags": [
+          "answers"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "answer_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/qa/answers": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReqRewardAmount"
-                }
-              }
-            }
-          },
-          "tags": [
-            "req_rewards"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
-          }
-        ]
-      },
-      "/reports": {
-        "get": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Report"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Answer"
                   }
                 }
               }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
             }
           },
-          "tags": [
-            "reports"
-          ]
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "answers"
+        ]
+      },
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Answer"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Answer"
+              }
+            }
+          }
+        },
+        "tags": [
+          "answers"
+        ]
+      }
+    },
+    "/req_rewards/{req_reward_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReqReward"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "req_rewards"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "req_rewards"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "req_reward_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/req_rewards": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReqReward"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "req_rewards"
+        ]
+      }
+    },
+    "/auth/users/{user_id}/req_rewards": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReqReward"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "req_rewards"
+        ]
+      },
+      "post": {
+        "responses": {
+          "422": {
+            "$ref": "#/components/responses/UNPROCESSABLE_ENTITY"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReqReward"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReqRewardAmount"
+              }
+            }
+          }
+        },
+        "tags": [
+          "req_rewards"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/reports": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      }
+    },
+    "/reports/users/{user_id}/questions/{question_id}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserReportsQuestion"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportQuestion"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        {
+          "in": "path",
+          "name": "question_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "/reports/users/{user_id}/answers/{answer_id}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserReportsAnswer"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportAnswer"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/DEFAULT_ERROR"
+          }
+        },
+        "tags": [
+          "reports"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "user_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        {
+          "in": "path",
+          "name": "answer_id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    }
+  },
+  "info": {
+    "title": "Solple REST API",
+    "version": "v1"
+  },
+  "tags": [
+    {
+      "name": "schools",
+      "description": "Operations on schools"
+    },
+    {
+      "name": "subjects",
+      "description": "Operations on subjects"
+    },
+    {
+      "name": "Users",
+      "description": "Operations on users"
+    },
+    {
+      "name": "questions",
+      "description": "Operations on questions"
+    },
+    {
+      "name": "answers",
+      "description": "Operations on answers"
+    },
+    {
+      "name": "req_rewards",
+      "description": "Operations on req_reward"
+    },
+    {
+      "name": "reports",
+      "description": "Operations on reports"
+    }
+  ],
+  "openapi": "3.0.3",
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "errors": {
+            "type": "object",
+            "description": "Errors"
+          },
+          "status": {
+            "type": "string",
+            "description": "Error name"
+          },
+          "code": {
+            "type": "integer",
+            "description": "Error code"
+          }
         }
       },
-      "/reports/users/{user_id}/questions/{question_id}": {
-        "post": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserReportsQuestion"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
+      "PaginationMetadata": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer"
           },
-          "tags": [
-            "reports"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ReportQuestion"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
+          "total_pages": {
+            "type": "integer"
           },
-          "tags": [
-            "reports"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "user_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "first_page": {
+            "type": "integer"
           },
-          {
-            "in": "path",
-            "name": "question_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "last_page": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "previous_page": {
+            "type": "integer"
+          },
+          "next_page": {
+            "type": "integer"
           }
+        }
+      },
+      "PlainUser": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "email"
         ]
       },
-      "/reports/users/{user_id}/answers/{answer_id}": {
-        "post": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UserReportsAnswer"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
+      "School": {
+        "type": "object",
+        "properties": {
+          "zip": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "users": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainUser"
             }
           },
-          "tags": [
-            "reports"
-          ]
-        },
-        "delete": {
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ReportAnswer"
-                  }
-                }
-              }
-            },
-            "default": {
-              "$ref": "#/components/responses/DEFAULT_ERROR"
-            }
+          "city": {
+            "type": "string"
           },
-          "tags": [
-            "reports"
-          ]
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "answer_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "code": {
+            "type": "integer"
           },
-          {
-            "in": "path",
-            "name": "user_id",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            }
+          "address": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "state_code": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
           }
+        },
+        "required": [
+          "address",
+          "city",
+          "code",
+          "name",
+          "phone",
+          "state",
+          "state_code",
+          "type",
+          "website",
+          "zip"
         ]
-      }
-    },
-    "info": {
-      "title": "Solple REST API",
-      "version": "v1"
-    },
-    "tags": [
-      {
-        "name": "schools",
-        "description": "Operations on schools"
       },
-      {
-        "name": "subjects",
-        "description": "Operations on subjects"
-      },
-      {
-        "name": "Users",
-        "description": "Operations on users"
-      },
-      {
-        "name": "questions",
-        "description": "Operations on questions"
-      },
-      {
-        "name": "answers",
-        "description": "Operations on answers"
-      },
-      {
-        "name": "req_rewards",
-        "description": "Operations on req_reward"
-      },
-      {
-        "name": "reports",
-        "description": "Operations on reports"
-      }
-    ],
-    "openapi": "3.0.3",
-    "components": {
-      "schemas": {
-        "Error": {
-          "type": "object",
-          "properties": {
-            "errors": {
-              "type": "object",
-              "description": "Errors"
-            },
-            "message": {
-              "type": "string",
-              "description": "Error message"
-            },
-            "code": {
-              "type": "integer",
-              "description": "Error code"
-            },
-            "status": {
-              "type": "string",
-              "description": "Error name"
-            }
+      "Subject": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "subject_reward": {
+            "type": "string"
           }
         },
-        "PaginationMetadata": {
-          "type": "object",
-          "properties": {
-            "total": {
-              "type": "integer"
-            },
-            "total_pages": {
-              "type": "integer"
-            },
-            "first_page": {
-              "type": "integer"
-            },
-            "last_page": {
-              "type": "integer"
-            },
-            "page": {
-              "type": "integer"
-            },
-            "previous_page": {
-              "type": "integer"
-            },
-            "next_page": {
-              "type": "integer"
-            }
+        "required": [
+          "category",
+          "name",
+          "subject_reward"
+        ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
           }
         },
-        "PlainUser": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            }
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "PlainSchool": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
           },
-          "required": [
-            "email"
-          ]
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
         },
-        "School": {
-          "type": "object",
-          "properties": {
-            "zip": {
-              "type": "string"
-            },
-            "website": {
-              "type": "string"
-            },
-            "state_code": {
-              "type": "string"
-            },
-            "code": {
-              "type": "integer"
-            },
-            "state": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "address": {
-              "type": "string"
-            },
-            "city": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "phone": {
-              "type": "string"
-            },
-            "users": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainUser"
+        "required": [
+          "name"
+        ]
+      },
+      "PlainQuestion": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "content": {
+            "type": "string"
+          },
+          "subject_name": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "content",
+          "subject_name"
+        ]
+      },
+      "PlainAnswer": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "content": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      },
+      "UserAllInfo": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "reward": {
+            "type": "number"
+          },
+          "school": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainSchool"
               }
-            },
-            "name": {
-              "type": "string"
-            }
+            ]
           },
-          "required": [
-            "address",
-            "city",
-            "code",
-            "name",
-            "phone",
-            "state",
-            "state_code",
-            "type",
-            "website",
-            "zip"
-          ]
-        },
-        "Subject": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "subject_reward": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "category": {
-              "type": "string"
-            }
+          "role": {
+            "type": "string"
           },
-          "required": [
-            "category",
-            "name",
-            "subject_reward"
-          ]
-        },
-        "User": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "password": {
-              "type": "string",
-              "writeOnly": true
-            }
-          },
-          "required": [
-            "email",
-            "password"
-          ]
-        },
-        "PlainAnswer": {
-          "type": "object",
-          "properties": {
-            "image_url": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "recog_text": {
-              "type": "string"
-            },
-            "content": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "content"
-          ]
-        },
-        "PlainSchool": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name"
-          ]
-        },
-        "PlainQuestion": {
-          "type": "object",
-          "properties": {
-            "subject_name": {
-              "type": "string"
-            },
-            "image_url": {
-              "type": "string"
-            },
-            "category": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "recog_text": {
-              "type": "string"
-            },
-            "content": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "category",
-            "content",
-            "subject_name"
-          ]
-        },
-        "UserAllInfo": {
-          "type": "object",
-          "properties": {
-            "payment_option": {
-              "type": "integer"
-            },
-            "answers": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainAnswer"
-              }
-            },
-            "nickname": {
-              "type": "string"
-            },
-            "grade": {
-              "type": "string"
-            },
-            "payment_account": {
-              "type": "string"
-            },
-            "school": {
-              "readOnly": true,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/PlainSchool"
-                }
-              ]
-            },
-            "role": {
-              "type": "string"
-            },
-            "reported_questions": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainQuestion"
-              }
-            },
-            "reported_answers": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainAnswer"
-              }
-            },
-            "school_id": {
-              "type": "integer",
-              "writeOnly": true
-            },
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "questions": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainQuestion"
-              }
-            },
-            "reward": {
-              "type": "number"
-            },
-            "level": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string",
-              "writeOnly": true
-            }
-          },
-          "required": [
-            "email",
-            "grade",
-            "level",
-            "nickname",
-            "password",
-            "payment_account",
-            "payment_option",
-            "reward",
-            "role"
-          ]
-        },
-        "UserUpdate": {
-          "type": "object",
-          "properties": {
-            "payment_option": {
-              "type": "integer"
-            },
-            "nickname": {
-              "type": "string"
-            },
-            "grade": {
-              "type": "string"
-            },
-            "payment_account": {
-              "type": "string"
-            },
-            "role": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "reward": {
-              "type": "number"
-            },
-            "school_name": {
-              "type": "string"
-            },
-            "level": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string",
-              "writeOnly": true
-            }
-          },
-          "required": [
-            "email",
-            "grade",
-            "level",
-            "nickname",
-            "password",
-            "payment_account",
-            "payment_option",
-            "reward",
-            "role",
-            "school_name"
-          ]
-        },
-        "UserReward": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "reward": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "email",
-            "reward"
-          ]
-        },
-        "Question": {
-          "type": "object",
-          "properties": {
-            "answers": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainAnswer"
-              }
-            },
-            "subject_name": {
-              "type": "string"
-            },
-            "user": {
-              "readOnly": true,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/PlainUser"
-                }
-              ]
-            },
-            "image_url": {
-              "type": "string"
-            },
-            "correct_answer_id": {
-              "type": "integer"
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time",
-              "readOnly": true
-            },
-            "category": {
-              "type": "string"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time",
-              "readOnly": true
-            },
-            "reported_by": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainUser"
-              }
-            },
-            "user_id": {
-              "type": "integer",
-              "writeOnly": true
-            },
-            "recog_text": {
-              "type": "string"
-            },
-            "content": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "category",
-            "content",
-            "subject_name"
-          ]
-        },
-        "Answer": {
-          "type": "object",
-          "properties": {
-            "question": {
-              "readOnly": true,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/PlainQuestion"
-                }
-              ]
-            },
-            "user": {
-              "readOnly": true,
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/PlainUser"
-                }
-              ]
-            },
-            "image_url": {
-              "type": "string"
-            },
-            "question_id": {
-              "type": "integer",
-              "writeOnly": true
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time",
-              "readOnly": true
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time",
-              "readOnly": true
-            },
-            "reported_by": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainUser"
-              }
-            },
-            "is_selected": {
-              "type": "boolean"
-            },
-            "user_id": {
-              "type": "integer",
-              "writeOnly": true
-            },
-            "recog_text": {
-              "type": "string"
-            },
-            "content": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "content",
-            "question_id"
-          ]
-        },
-        "ReqReward": {
-          "type": "object",
-          "properties": {
-            "payment_option": {
-              "type": "integer"
-            },
-            "re_reward_id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "calculated_reward": {
-              "type": "string"
-            },
-            "balance": {
-              "type": "string"
-            },
-            "requested_at": {
-              "type": "string",
-              "format": "date-time",
-              "readOnly": true
-            },
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "account": {
-              "type": "string"
-            },
-            "req_reward": {
-              "type": "string"
-            },
-            "status": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "account",
-            "balance",
-            "calculated_reward",
-            "email",
-            "payment_option",
-            "req_reward",
-            "status"
-          ]
-        },
-        "ReqRewardAmount": {
-          "type": "object",
-          "properties": {
-            "amount": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "amount"
-          ]
-        },
-        "Report": {
-          "type": "object",
-          "properties": {
-            "answer_id": {
-              "type": "integer"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "user_id": {
-              "type": "integer"
-            },
-            "question_id": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "user_id"
-          ]
-        },
-        "UserReportsQuestion": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "reported_questions": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainQuestion"
-              }
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            }
-          },
-          "required": [
-            "email"
-          ]
-        },
-        "ReportQuestion": {
-          "type": "object",
-          "properties": {
-            "question": {
+          "questions": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
               "$ref": "#/components/schemas/PlainQuestion"
-            },
-            "message": {
-              "type": "string"
-            },
-            "user": {
-              "$ref": "#/components/schemas/PlainUser"
+            }
+          },
+          "payment_account": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "reported_answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          },
+          "grade": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "payment_option": {
+            "type": "integer"
+          },
+          "level": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          },
+          "school_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "reported_questions": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainQuestion"
             }
           }
         },
-        "UserReportsAnswer": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "id": {
-              "type": "integer",
-              "readOnly": true
-            },
-            "reported_answers": {
-              "type": "array",
-              "readOnly": true,
-              "items": {
-                "$ref": "#/components/schemas/PlainAnswer"
-              }
+        "required": [
+          "email",
+          "grade",
+          "level",
+          "nickname",
+          "password",
+          "payment_account",
+          "payment_option",
+          "reward",
+          "role"
+        ]
+      },
+      "UserUpdate": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "reward": {
+            "type": "number"
+          },
+          "role": {
+            "type": "string"
+          },
+          "payment_account": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "grade": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "payment_option": {
+            "type": "integer"
+          },
+          "level": {
+            "type": "string"
+          },
+          "school_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "grade",
+          "level",
+          "nickname",
+          "password",
+          "payment_account",
+          "payment_option",
+          "reward",
+          "role",
+          "school_name"
+        ]
+      },
+      "UserReward": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "reward": {
+            "type": "number"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "email",
+          "reward"
+        ]
+      },
+      "Question": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "reported_by": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainUser"
             }
           },
-          "required": [
-            "email"
-          ]
-        },
-        "ReportAnswer": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string"
-            },
-            "answer": {
+          "content": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
               "$ref": "#/components/schemas/PlainAnswer"
-            },
-            "user": {
+            }
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "subject_name": {
+            "type": "string"
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "content",
+          "subject_name"
+        ]
+      },
+      "Search": {
+        "type": "object",
+        "properties": {
+          "hasAnswer": {
+            "type": "string"
+          },
+          "authorEmail": {
+            "type": "string"
+          },
+          "page": {
+            "type": "string"
+          },
+          "num": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "subjectIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "AnswersForSearch": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "is_selected": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      },
+      "PlainUserSchemaWithNickname": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "email",
+          "nickname"
+        ]
+      },
+      "QuestionsSearch": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "content": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/AnswersForSearch"
+            }
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "subject_name": {
+            "type": "string"
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUserSchemaWithNickname"
+              }
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "content",
+          "subject_name"
+        ]
+      },
+      "QuestionsAsList": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "message": {
+            "type": "string"
+          },
+          "question_list": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/QuestionsSearch"
+            }
+          },
+          "correct_answer_id": {
+            "type": "integer"
+          },
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "reported_by": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
               "$ref": "#/components/schemas/PlainUser"
+            }
+          },
+          "return_code": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "subject_name": {
+            "type": "string"
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "content",
+          "subject_name"
+        ]
+      },
+      "Answer": {
+        "type": "object",
+        "properties": {
+          "recog_text": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "reported_by": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainUser"
+            }
+          },
+          "is_selected": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "question_id": {
+            "type": "integer",
+            "writeOnly": true
+          },
+          "question": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainQuestion"
+              }
+            ]
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "user": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PlainUser"
+              }
+            ]
+          },
+          "image_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content",
+          "question_id"
+        ]
+      },
+      "ReqReward": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "calculated_reward": {
+            "type": "string"
+          },
+          "req_reward": {
+            "type": "string"
+          },
+          "account": {
+            "type": "string"
+          },
+          "re_reward_id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "string"
+          },
+          "payment_option": {
+            "type": "integer"
+          },
+          "requested_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "account",
+          "balance",
+          "calculated_reward",
+          "email",
+          "payment_option",
+          "req_reward",
+          "status"
+        ]
+      },
+      "ReqRewardAmount": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount"
+        ]
+      },
+      "Report": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "answer_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      },
+      "UserReportsQuestion": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "reported_questions": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainQuestion"
+            }
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "ReportQuestion": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "$ref": "#/components/schemas/PlainQuestion"
+          },
+          "message": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/PlainUser"
+          }
+        }
+      },
+      "UserReportsAnswer": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "reported_answers": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/PlainAnswer"
+            }
+          },
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "ReportAnswer": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "answer": {
+            "$ref": "#/components/schemas/PlainAnswer"
+          },
+          "user": {
+            "$ref": "#/components/schemas/PlainUser"
+          }
+        }
+      }
+    },
+    "responses": {
+      "DEFAULT_ERROR": {
+        "description": "Default error response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
             }
           }
         }
       },
-      "responses": {
-        "DEFAULT_ERROR": {
-          "description": "Default error response",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "UNPROCESSABLE_ENTITY": {
-          "description": "Unprocessable Entity",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
+      "UNPROCESSABLE_ENTITY": {
+        "description": "Unprocessable Entity",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
             }
           }
         }
       }
     }
   }
+}
