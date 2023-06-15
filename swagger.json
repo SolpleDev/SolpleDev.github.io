@@ -1,4 +1,10 @@
 {
+  "swagger": "2.0",
+  "info": {
+    "description": "Solple API",
+    "version": "2.0.0",
+    "title": "Solple API"
+  },
   "host": "solple.herokuapp.com",
   "schemes": [
     "https"
