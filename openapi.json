@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "servers": [{ "url": "https://solple.herokuapp.com" }]
+  "servers": [{ "url": "https://solple.herokuapp.com" }],
   "paths": {
     "/schools/{school_id}": {
       "get": {
