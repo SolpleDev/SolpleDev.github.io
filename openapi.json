@@ -1,4 +1,8 @@
 {
+  "host": "solple.herokuapp.com",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/schools/{school_id}": {
       "get": {
