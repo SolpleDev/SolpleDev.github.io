@@ -4,20 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Solple REST API</title>
-    <link href="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css" rel="stylesheet" type="text/css">
-  </head>
+    <link href="https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui.css" rel="stylesheet" type="text/css">  </head>
  <body>
-   <div id="swagger-ui"></div>
-   <script src="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-bundle.js" crossorigin></script>
-   <script>
-     config = {
-       url: "https://solpledev.github.io/swagger.json",
-       dom_id: '#swagger-ui'
-     }
-       
-     window.onload = function() {
-       window.ui = SwaggerUIBundle(config)
-     }
-   </script>
+   <div id="swagger-ui-container">
+       <div id="swagger-ui">
+       </div>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-bundle.js"></script>
+    <script>
+        config = {
+        url: "/openapi.json",
+        dom_id: '#swagger-ui-container'
+        }
+        
+        var override_config = {};
+        for (var attrname in override_config) { config[attrname] = override_config[attrname]; }
+        
+        window.onload = function() {
+        window.ui = SwaggerUIBundle(config)
+        }
+    </script>
 </body>
 </html>
